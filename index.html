@@ -29,7 +29,7 @@
         <h1>Hi, I'm Carlos Brotons <br> a Telecommunications Engineer</h1>
         <div class="subtitle">
           I hold a degree in Telecommunications Engineering, with a strong background in RF design, embedded systems, and signal processing. 
-          In recent years, I have specialized in Artificial Intelligence, completing several courses in Spain and Sweden, and continuing advanced training 
+          In recent years, I have specialized in Artificial Intelligence, completing several courses in Polythechnic University of Valencia and KTH Royal Institute of Technology, and continuing advanced training 
           to apply AI and machine learning techniques to engineering and automation challenges.
 
         </div>
@@ -95,77 +95,106 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section-wrapper section-white">
-    <div class="section">
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-sub">
-        A few things I've built or analyzed recently.
-      </p>
+  <section id="academic-projects" class="section-wrapper section-white">
+  <div class="section">
+    <h2 class="section-title">Academic & University Projects</h2>
+    <p class="section-sub">
+      Key technical projects completed during my Telecommunications Engineering degree.
+    </p>
+
 
       <div class="projects-grid">
+        <!-- Project: Codiseño Hardware-Software -->
+      <div class="project-card">
+      <!-- Header con imagen de fondo -->
+      <div class="project-img">
+        <h3 style="color: white; font-size: 1.1rem; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+          Hardware and Software co-design
+        </h3>
+      </div>
 
-        <!-- Project 1 -->
-        <div class="project-card">
-          <div class="project-img">
-            Dielectric Measurement System
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Dielectric Properties Measurement Platform</h3>
-            <p class="project-desc">
-              Remote-controlled system to measure dielectric properties of materials.
-              Supports automatic calibration, temperature sensing, real-time logging,
-              and CSV export.
-            </p>
-            <div class="tags">
-              <span class="tag-pill">LabVIEW</span>
-              <span class="tag-pill">ESP32</span>
-              <span class="tag-pill">Python</span>
-              <span class="tag-pill">IoT</span>
-            </div>
-          </div>
+      <!-- Cuerpo del contenido -->
+      <div class="project-body">
+        <p class="project-desc">
+          Laboratory course focused on the co-design and integration of hardware and software in FPGA-based systems.
+          Developed multiple projects using Verilog and C on Intel DE2/DE1-SoC boards, from peripheral design and bus
+          communication to embedded control and hardware acceleration for neural networks.
+        </p>
+        <ul style="font-size:0.85rem; color:rgba(255,255,255,0.85); margin-top:0.5rem;">
+          <li>Toaster controller in C (state machines, interrupts, and display control)</li>
+          <li>Custom timer in Verilog (Avalon-MM interface and interrupt support)</li>
+          <li>Hardware acceleration of a backpropagation algorithm (ALUs, DMA, HLS)</li>
+        </ul>
+        <div class="tags">
+          <span class="tag-pill">Quartus II</span>
+          <span class="tag-pill">Verilog</span>
+          <span class="tag-pill">ModelSim</span>
+          <span class="tag-pill">Nios II</span>
+          <span class="tag-pill">C/C++</span>
         </div>
+      </div>
+    </div>
 
         <!-- Project 2 -->
+      <!-- Project: High-Frequency Electronics -->
         <div class="project-card">
           <div class="project-img">
-            LNA / RF Front-End
+            <h3 style="color: white; font-size: 1.1rem; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+              High-Frequency Electronics
+            </h3>
           </div>
+
           <div class="project-body">
-            <h3 class="project-title">Low Noise Amplifier Design (GaN)</h3>
             <p class="project-desc">
-              LNA design and simulation including gain, noise figure,
-              stability circles, PAE, compression points, and intermodulation.
-              Focused on practical, non-ideal components.
+              Laboratory course focused on RF and microwave circuit design, including passive networks,
+              low-noise amplifiers (LNAs), and oscillators. Projects were developed using <strong>AWR Microwave Office</strong>
+              and involved the complete workflow from schematic to EM simulation and optimization.
             </p>
+            <ul style="font-size:0.85rem; color:rgba(255,255,255,0.85); margin-top:0.5rem;">
+              <li>Design and EM simulation of a 5th-order Chebyshev low-pass filter (lumped and microstrip implementations).</li>
+              <li>LNA design for Wi-Fi at 2.45 GHz: stability, noise/gain trade-off, and impedance matching.</li>
+              <li>Clapp oscillator at 2.5 GHz with phase noise optimization and transient/time-domain analysis.</li>
+            </ul>
             <div class="tags">
-              <span class="tag-pill">RF</span>
-              <span class="tag-pill">ADS</span>
-              <span class="tag-pill">MATLAB</span>
-              <span class="tag-pill">Microwave Eng</span>
+              <span class="tag-pill">Microwave Office</span>
+              <span class="tag-pill">S-Parameters</span>
+              <span class="tag-pill">Smith Chart</span>
+              <span class="tag-pill">LNA</span>
+              <span class="tag-pill">Oscillator Design</span>
+              <span class="tag-pill">Filter Design</span>
             </div>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card">
-          <div class="project-img">
-            ML / Deep Belief Network
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">RBM & DBN from Scratch</h3>
-            <p class="project-desc">
-              Built a Restricted Boltzmann Machine and a Deep Belief Network
-              (contrastive divergence, wake-sleep training) for digit recognition
-              and image generation.
-            </p>
-            <div class="tags">
-              <span class="tag-pill">Python</span>
-              <span class="tag-pill">NumPy</span>
-              <span class="tag-pill">ML</span>
-              <span class="tag-pill">Signal Processing</span>
-            </div>
+      <div class="project-card">
+        <div class="project-img">
+          <h3 style="color: white; font-size: 1.1rem; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+            Emerging Technologies
+          </h3>
+        </div>
+
+        <div class="project-body">
+          <p class="project-desc">
+            Two projects developed exploring modern interactive technologies: a <strong>finance education website</strong> built with 
+            <strong>HTML, CSS, and JavaScript</strong>, and a <strong>Virtual Reality experience</strong> created in <strong>Unity</strong> for Meta Quest 3.
+          </p>
+
+          <ul style="font-size:0.85rem; color:rgba(255,255,255,0.85); margin-top:0.5rem;">
+            <li>Finance platform with interactive calculators and educational tools to teach savings and investments.</li>
+            <li>VR project featuring multiple mini-games within a 3D map, fully playable with Meta Quest 3 headsets.</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag-pill">HTML / CSS / JS</span>
+            <span class="tag-pill">Unity</span>
+            <span class="tag-pill">Meta Quest 3</span>
+            <span class="tag-pill">Virtual Reality</span>
+            <span class="tag-pill">Finance Education</span>
           </div>
         </div>
+        </div>
+
 
       </div>
     </div>

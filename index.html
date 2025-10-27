@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Brotons · RF & Embedded Systems Portfolio</title>
+  <style>
+    :root {
+      --bg-dark: #0b0f1a;
+      --bg-section: #f5f6fa;
+      --text-light: #ffffff;
+      --text-dim: rgba(255,255,255,0.7);
+      --accent: #4e6bff;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-card: 0 20px 40px rgba(0,0,0,0.12);
+      --shadow-soft: 0 8px 24px rgba(0,0,0,0.08);
+      --text-dark: #1a1a1a;
+      --text-mid: #555;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, "Segoe UI", sans-serif;
+      background-color: var(--bg-section);
+      color: var(--text-dark);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    .navbar-wrapper {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-light);
+    }
+
+    .contact-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: var(--radius-md);
+    }
+
+    .contact-btn:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* HERO */
+    .hero-wrapper {
+      background: radial-gradient(circle at 40% 20%, rgba(78,107,255,0.35) 0%, rgba(11,15,26,0) 60%), var(--bg-dark);
+      color: var(--text-light);
+      padding: 3rem 2rem 4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr minmax(260px, 340px);
+      gap: 2rem;
+    }
+
+    @media(max-width: 900px){
+      .hero{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 2.5vw + 1rem, 3rem);
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      margin: 0 0 1rem;
+      color: var(--text-light);
+      max-width: 20ch;
+    }
+
+    .hero-text .subtitle {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      max-width: 38ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 32px rgba(78,107,255,0.4);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 0.9rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      max-width: 340px;
+      place-self: center end;
+    }
+    @media(max-width:900px){
+      .hero-card{
+        place-self: start;
+        max-width: 100%;
+      }
+    }
+
+    .hero-card-img {
+      background: #2a2f3f;
+      border-radius: var(--radius-md);
+      height: 160px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    .hero-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+      margin: 0.8rem 0 1rem;
+    }
+
+    /* SECTION WRAPPER */
+    .section-wrapper {
+      background: var(--bg-section);
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .section {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      margin: 0 0 2rem;
+      text-align: center;
+    }
+
+    .section-sub {
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(min(260px,100%),1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 24px rgba(78,107,255,0.4);
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .service-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* PROJECTS GRID */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px,100%),1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #0f162a;
+      color: var(--text-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .project-img {
+      background: #1f253a;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    .project-body {
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+      margin: 0 0 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+      margin: 0 0 0.75rem;
+    }
+
+    .tags {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag-pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      line-height: 1.2;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(min(280px,100%),1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      box-shadow: var(--shadow-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 1rem 1.25rem 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-mid);
+    }
+
+    .testimonial-stars {
+      color: #f5b400;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .testimonial-name {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      letter-spacing: -0.03em;
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-section);
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .footer-links a {
+      color: var(--text-dark);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar-wrapper">
+    <nav class="navbar">
+      <div class="brand">Carlos Brotons</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="contact-btn">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero-wrapper">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Telecommunications • RF Design • Embedded Systems • AI for Signal Processing</h1>
+        <div class="subtitle">
+          I build and analyze real systems: RF front-ends, embedded hardware, data acquisition,
+          and intelligent signal processing. I'm especially interested in microwave/RF design,
+          IoT systems, and applying machine learning to engineering problems.
+        </div>
+        <a class="hero-cta" href="#projects">View Projects →</a>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-img">
+          <span>Photo / board / lab image here</span>
+        </div>
+        <p class="hero-card-desc">
+          Final Year Project: remote-controlled dielectric characterization platform,
+          with automatic calibration, temperature monitoring, and real-time data logging.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <!-- SERVICES / SKILLS -->
+  <section id="skills" class="section-wrapper">
+    <div class="section">
+      <h2 class="section-title">Core Focus Areas</h2>
+      <p class="section-sub">
+        What I work on and what I can bring to a team.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">RF</div>
+          <h3>RF & Microwave</h3>
+          <p>
+            Low Noise Amplifier design, stability analysis, PAE, compression points,
+            linearity and impedance matching (GaN-based stages).
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">HW</div>
+          <h3>Embedded / IoT Systems</h3>
+          <p>
+            Sensor integration, ESP32/MCU control, data acquisition, remote monitoring,
+            reliable real-time logging.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">AI</div>
+          <h3>Machine Learning</h3>
+          <p>
+            RBMs & DBNs from scratch, classification on real data,
+            signal processing + intelligence for telecom use cases.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">SW</div>
+          <h3>Software Engineering</h3>
+          <p>
+            Python, C, MATLAB, LabVIEW.
+            Clean data pipelines, tooling for experiments, and GUIs for instrumentation.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section-wrapper" style="background:#fff;">
+    <div class="section">
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-sub">
+        A few things I've built or analyzed recently.
+      </p>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img">
+            Dielectric Measurement System
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Dielectric Properties Measurement Platform</h3>
+            <p class="project-desc">
+              Remote-controlled system to measure dielectric properties of materials.
+              Supports automatic calibration, temperature sensing, real-time logging,
+              and CSV export.
+            </p>
+            <div class="tags">
+              <span class="tag-pill">LabVIEW</span>
+              <span class="tag-pill">ESP32</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">IoT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img">
+            LNA / RF Front-End
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Low Noise Amplifier Design (GaN)</h3>
+            <p class="project-desc">
+              LNA design and simulation including gain, noise figure,
+              stability circles, PAE, compression points, and intermodulation.
+              Focused on practical, non-ideal components.
+            </p>
+            <div class="tags">
+              <span class="tag-pill">RF</span>
+              <span class="tag-pill">ADS</span>
+              <span class="tag-pill">MATLAB</span>
+              <span class="tag-pill">Microwave Eng</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-img">
+            ML / Deep Belief Network
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">RBM & DBN from Scratch</h3>
+            <p class="project-desc">
+              Built a Restricted Boltzmann Machine and a Deep Belief Network
+              (contrastive divergence, wake-sleep training) for digit recognition
+              and image generation.
+            </p>
+            <div class="tags">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">NumPy</span>
+              <span class="tag-pill">ML</span>
+              <span class="tag-pill">Signal Processing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / REFERENCES -->
+  <section class="section-wrapper">
+    <div class="section">
+      <h2 class="section-title">References & Feedback</h2>
+      <p class="section-sub">
+        Things mentors, professors or collaborators could say about my work.
+        (Placeholder text you can customize later.)
+      </p>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★ 5.0</div>
+          <div>
+            Carlos delivers solid RF analysis and understands real hardware
+            constraints, not just theory. Strong mindset for lab work and iteration.
+          </div>
+          <div class="testimonial-name">Professor / RF Lab</div>
+          <div class="testimonial-role">Telecommunications Engineering Dept.</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★ 5.0</div>
+          <div>
+            He can go from embedded firmware to data acquisition software and
+            produce something usable in practice, not just a demo.
+          </div>
+          <div class="testimonial-name">Project Supervisor</div>
+          <div class="testimonial-role">Embedded Systems / IoT</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★ 5.0</div>
+          <div>
+            Strong interest in applying AI/ML to signal processing problems.
+            Very fast learner and independent thinker.
+          </div>
+          <div class="testimonial-name">Research Mentor</div>
+          <div class="testimonial-role">Machine Learning & Signal Processing</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-links">
+      <a href="mailto:your.email@example.com">Email</a>
+      <a href="https://github.com/CarlosBrotonsMontoro" target="_blank">GitHub</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#projects">Projects</a>
+    </div>
+    <div>© 2025 Carlos Brotons — Telecommunications Engineering · RF · Embedded Systems · AI</div>
+  </footer>
+
+</body>
+</html>
